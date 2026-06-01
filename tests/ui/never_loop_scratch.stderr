@@ -1,0 +1,186 @@
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop_scratch.rs:13:13: 13:24 (#0)], never_spans: [], non_obvious_spans: [] }
+DEBUG result before is_never: Normal
+error: this loop never actually loops
+  --> tests/ui/never_loop_scratch.rs:8:5
+   |
+LL | /     'bar: for _ in 0..100 {
+LL | |
+LL | |         loop {
+...  |
+LL | |     }
+   | |_____^
+   |
+help: this code is unreachable. Consider moving the reachable parts out
+  --> tests/ui/never_loop_scratch.rs:10:9
+   |
+LL | /         loop {
+LL | |
+LL | |             println!("This will still run");
+LL | |             break 'bar;
+LL | |         }
+   | |_________^
+note: This expression never returns
+  --> tests/ui/never_loop_scratch.rs:10:9
+   |
+LL | /         loop {
+LL | |
+LL | |             println!("This will still run");
+LL | |             break 'bar;
+LL | |         }
+   | |_________^
+   = note: `#[deny(clippy::never_loop)]` on by default
+help: if you need the first element of the iterator, try writing
+   |
+LL -     'bar: for _ in 0..100 {
+LL +     if let Some(_) = (0..100).next() {
+   |
+
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop_scratch.rs:13:13: 13:24 (#0)], never_spans: [], non_obvious_spans: [] }
+error: this loop never actually loops
+  --> tests/ui/never_loop_scratch.rs:10:9
+   |
+LL | /         loop {
+LL | |
+LL | |             println!("This will still run");
+LL | |             break 'bar;
+LL | |         }
+   | |_________^
+
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop_scratch.rs:25:17: 25:28 (#0)], never_spans: [], non_obvious_spans: [] }
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+error: this loop never actually loops
+  --> tests/ui/never_loop_scratch.rs:17:5
+   |
+LL | /     'foo: for _ in 0..100 {
+LL | |
+LL | |         loop {
+...  |
+LL | |     }
+   | |_____^
+   |
+help: this code is unreachable. Consider moving the reachable parts out
+  --> tests/ui/never_loop_scratch.rs:19:9
+   |
+LL | /         loop {
+LL | |
+LL | |             println!("This will still run");
+LL | |             loop {
+...  |
+LL | |         }
+   | |_________^
+note: This expression never returns
+  --> tests/ui/never_loop_scratch.rs:19:9
+   |
+LL | /         loop {
+LL | |
+LL | |             println!("This will still run");
+LL | |             loop {
+...  |
+LL | |         }
+   | |_________^
+help: if you need the first element of the iterator, try writing
+   |
+LL -     'foo: for _ in 0..100 {
+LL +     if let Some(_) = (0..100).next() {
+   |
+
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop_scratch.rs:25:17: 25:28 (#0)], never_spans: [], non_obvious_spans: [] }
+DEBUG result before is_never: Normal
+error: this loop never actually loops
+  --> tests/ui/never_loop_scratch.rs:19:9
+   |
+LL | /         loop {
+LL | |
+LL | |             println!("This will still run");
+LL | |             loop {
+...  |
+LL | |         }
+   | |_________^
+   |
+note: This expression never returns
+  --> tests/ui/never_loop_scratch.rs:22:13
+   |
+LL | /             loop {
+LL | |
+LL | |                 println!("This will still run");
+LL | |                 break 'foo;
+LL | |             }
+   | |_____________^
+
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Normal
+DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop_scratch.rs:25:17: 25:28 (#0)], never_spans: [], non_obvious_spans: [] }
+error: this loop never actually loops
+  --> tests/ui/never_loop_scratch.rs:22:13
+   |
+LL | /             loop {
+LL | |
+LL | |                 println!("This will still run");
+LL | |                 break 'foo;
+LL | |             }
+   | |_____________^
+
+error: this lint expectation is unfulfilled
+  --> tests/ui/never_loop_scratch.rs:2:11
+   |
+LL | #![expect(clippy::eq_op, clippy::single_match, clippy::while_immutable_condition)]
+   |           ^^^^^^^^^^^^^
+   |
+   = note: `-D unfulfilled-lint-expectations` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(unfulfilled_lint_expectations)]`
+
+error: this lint expectation is unfulfilled
+  --> tests/ui/never_loop_scratch.rs:2:26
+   |
+LL | #![expect(clippy::eq_op, clippy::single_match, clippy::while_immutable_condition)]
+   |                          ^^^^^^^^^^^^^^^^^^^^
+
+error: this lint expectation is unfulfilled
+  --> tests/ui/never_loop_scratch.rs:2:48
+   |
+LL | #![expect(clippy::eq_op, clippy::single_match, clippy::while_immutable_condition)]
+   |                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to 8 previous errors
+

@@ -541,3 +541,12 @@ fn issue16462() {
         n >= 0 || break;
     }
 }
+
+fn issue16056() {
+    let x = || Some(panic!());
+
+    //~v never_loop
+    loop {
+        x().unwrap();
+    }
+}
