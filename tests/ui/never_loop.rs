@@ -542,11 +542,107 @@ fn issue16462() {
     }
 }
 
-fn issue16056() {
+fn issue16056_basic() {
     let x = || Some(panic!());
 
     //~v never_loop
     loop {
         x().unwrap();
+    }
+}
+
+fn issue16056_nested_loops() {
+    let x = || Some(panic!());
+
+    //~v never_loop
+    loop {
+        //~v never_loop
+        loop {
+            x().unwrap();
+        }
+    }
+}
+
+fn issue16056_nested_block() {
+    let x = || Some(panic!());
+
+    //~v never_loop
+    loop {
+        {
+            x().unwrap();
+        }
+    }
+}
+
+fn issue16056_nested_blocks() {
+    let x = || Some(panic!());
+
+    //~v never_loop
+    loop {
+        {
+            {
+                x().unwrap();
+            }
+        }
+    }
+}
+
+fn issue16056_match() {
+    let x = || Some(panic!());
+
+    let mut y = 1;
+    //~v never_loop
+    loop {
+        y += 1;
+        match y {
+            5 => return,
+            _ => {
+                x().unwrap();
+            },
+        }
+    }
+}
+
+fn issue16056_if_no_trigger() {
+    let x = || Some(panic!());
+    let mut y = 0;
+    loop {
+        //~^ never_loop
+
+        // clippy::never_loop
+        y += 1;
+        if y == 1 {
+            // No extra note for this
+            x().unwrap();
+        }
+        break;
+    }
+}
+
+fn issue16056_if_trigger() {
+    let x = || Some(panic!());
+
+    //~v never_loop
+    loop {
+        if true {
+            x().unwrap();
+        } else {
+            break;
+        }
+    }
+}
+
+macro_rules! test_macro {
+    ($e:expr) => {
+        $e
+    };
+}
+
+fn issue16056_macro() {
+    let x = || Some(panic!());
+
+    //~v never_loop
+    loop {
+        test_macro!(x().unwrap());
     }
 }

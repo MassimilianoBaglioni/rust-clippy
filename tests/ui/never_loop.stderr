@@ -1,13 +1,3 @@
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:17:9: 17:15 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:9:5
    |
@@ -19,19 +9,6 @@ LL | |     }
    |
    = note: `#[deny(clippy::never_loop)]` on by default
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:26:13: 26:19 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:26:13: 26:19 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:38:9: 38:15 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:33:5
    |
@@ -41,23 +18,6 @@ LL | |         break;
 LL | |     }
    | |_____^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:63:13: 63:19 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:63:13: 63:19 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:59:9: 64:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:59:9: 64:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:63:13: 63:19 (#0), tests/ui/never_loop.rs:59:9: 64:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:55:5
    |
@@ -67,14 +27,6 @@ LL | |         return;
 LL | |     }
    | |_____^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:63:13: 63:19 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:63:13: 63:19 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:59:9: 64:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:59:9: 64:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:63:13: 63:19 (#0), tests/ui/never_loop.rs:59:9: 64:10 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:59:9
    |
@@ -83,24 +35,6 @@ LL | /         while i == 0 {
 LL | |         }
    | |_________^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:78:17: 78:23 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:78:17: 78:23 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:78:17: 78:23 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:78:17: 78:23 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:80:13: 80:29 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:73:9
    |
@@ -110,27 +44,6 @@ LL | |             continue 'outer;
 LL | |         }
    | |_________^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:111:5: 116:6 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:111:5: 116:6 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:111:5: 116:6 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:111:5
    |
@@ -139,10 +52,6 @@ LL | /     while let Some(y) = x {
 LL | |     }
    | |_____^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:120:5
    |
@@ -157,70 +66,6 @@ LL -     for x in 0..10 {
 LL +     if let Some(x) = (0..10).next() {
    |
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:144:17: 144:33 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:144:17: 144:33 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:147:17: 147:23 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:147:17: 147:23 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:161:17: 161:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:161:17: 161:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:158:9: 164:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:158:9: 164:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:158:9: 164:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:158:9: 164:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:158:9: 164:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:177:17: 177:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:177:17: 177:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:174:9: 179:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:174:9: 179:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:180:9: 180:22 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:180:9: 180:22 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:170:5: 181:6 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:170:5: 181:6 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:180:9: 180:22 (#0), tests/ui/never_loop.rs:170:5: 181:6 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:170:5
    |
@@ -230,31 +75,6 @@ LL | |         break 'outer;
 LL | |     }
    | |_____^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:174:9: 179:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:174:9: 179:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:190:13: 190:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:190:13: 190:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:187:9: 191:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:187:9: 191:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:190:13: 190:26 (#0), tests/ui/never_loop.rs:187:9: 191:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:190:13: 190:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:190:13: 190:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:187:9: 191:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:187:9: 191:10 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:190:13: 190:26 (#0), tests/ui/never_loop.rs:187:9: 191:10 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:187:9
    |
@@ -265,40 +85,6 @@ LL | |             break 'label;
 LL | |         }
    | |_________^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:247:9: 247:17 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:240:13
    |
@@ -312,12 +98,6 @@ LL | |         break x;
 LL | |     };
    | |_____^
 
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:268:17: 268:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:268:17: 268:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:268:17: 268:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:268:17: 268:26 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:263:5
    |
@@ -338,41 +118,6 @@ LL |                 break 'a;
    = note: `-D clippy::diverging-sub-expression` implied by `-D warnings`
    = help: to override `-D warnings` add `#[allow(clippy::diverging_sub_expression)]`
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:300:13
    |
@@ -389,85 +134,6 @@ LL -             for _ in 0..20 {
 LL +             if let Some(_) = (0..20).next() {
    |
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:377:13: 377:22 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:388:24: 388:32 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:388:24: 388:32 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:388:24: 388:32 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: MayContinueMainLoop
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:388:24: 388:32 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:388:24: 388:32 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:388:24: 388:32 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:385:13
    |
@@ -478,12 +144,6 @@ LL | |                 if b { break 'c } else { break 'b }
 LL | |             }
    | |_____________^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [tests/ui/never_loop.rs:400:9: 400:25 (#0)], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:397:5
    |
@@ -494,26 +154,6 @@ LL | |         panic!("oh no");
 LL | |     }
    | |_____^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [tests/ui/never_loop.rs:405:9: 405:35 (#0)], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:402:5
    |
@@ -524,37 +164,6 @@ LL | |         unimplemented!("not yet");
 LL | |     }
    | |_____^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [tests/ui/never_loop.rs:409:9: 409:30 (#0)], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [tests/ui/never_loop.rs:416:13: 416:18 (#0)] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:425:9: 425:15 (#0), tests/ui/never_loop.rs:426:9: 426:25 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:423:5
    |
@@ -573,8 +182,6 @@ LL ~
 LL ~         
    |
 
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:435:13: 435:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:431:5
    |
@@ -599,21 +206,12 @@ help: this code is unreachable. Consider moving the reachable parts out
    |
 LL |         return;
    |         ^^^^^^^
-note: This expression never returns
-  --> tests/ui/never_loop.rs:433:9
-   |
-LL | /         loop {
-LL | |
-LL | |             break 'outer;
-LL | |         }
-   | |_________^
 help: if you need the first element of the iterator, try writing
    |
 LL -     'outer: for v in 0..10 {
 LL +     if let Some(v) = (0..10).next() {
    |
 
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:435:13: 435:26 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:433:9
    |
@@ -623,9 +221,6 @@ LL | |             break 'outer;
 LL | |         }
    | |_________^
 
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:444:13: 444:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:440:5
    |
@@ -643,7 +238,6 @@ LL -     for v in 0..10 {
 LL +     if let Some(v) = (0..10).next() {
    |
 
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:444:13: 444:26 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:442:9
    |
@@ -653,7 +247,6 @@ LL | |             break 'inner;
 LL | |         }
    | |_________^
 
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:455:9: 455:18 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:453:5
    |
@@ -670,18 +263,6 @@ LL |
 LL ~         
    |
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:464:17: 464:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:464:17: 464:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:468:17: 468:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:468:17: 468:26 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:464:17: 464:26 (#0), tests/ui/never_loop.rs:468:17: 468:26 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:459:5
    |
@@ -706,7 +287,6 @@ LL |                 b += x;
 LL ~                 
    |
 
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:476:9: 476:15 (#0), tests/ui/never_loop.rs:477:9: 477:25 (#0), tests/ui/never_loop.rs:479:9: 479:39 (#0), tests/ui/never_loop.rs:480:9: 480:11 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:474:5
    |
@@ -730,14 +310,6 @@ LL ~
 LL ~         
    |
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:490:13: 490:24 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:485:5
    |
@@ -757,28 +329,12 @@ LL | |             println!("This will still run");
 LL | |             break 'bar;
 LL | |         }
    | |_________^
-note: This expression never returns
-  --> tests/ui/never_loop.rs:487:9
-   |
-LL | /         loop {
-LL | |
-LL | |             println!("This will still run");
-LL | |             break 'bar;
-LL | |         }
-   | |_________^
 help: if you need the first element of the iterator, try writing
    |
 LL -     'bar: for _ in 0..100 {
 LL +     if let Some(_) = (0..100).next() {
    |
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:490:13: 490:24 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:487:9
    |
@@ -789,21 +345,6 @@ LL | |             break 'bar;
 LL | |         }
    | |_________^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:502:17: 502:28 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:494:5
    |
@@ -824,36 +365,12 @@ LL | |             loop {
 ...  |
 LL | |         }
    | |_________^
-note: This expression never returns
-  --> tests/ui/never_loop.rs:496:9
-   |
-LL | /         loop {
-LL | |
-LL | |             println!("This will still run");
-LL | |             loop {
-...  |
-LL | |         }
-   | |_________^
 help: if you need the first element of the iterator, try writing
    |
 LL -     'foo: for _ in 0..100 {
 LL +     if let Some(_) = (0..100).next() {
    |
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:502:17: 502:28 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:496:9
    |
@@ -864,24 +381,7 @@ LL | |             loop {
 ...  |
 LL | |         }
    | |_________^
-   |
-note: This expression never returns
-  --> tests/ui/never_loop.rs:499:13
-   |
-LL | /             loop {
-LL | |
-LL | |                 println!("This will still run");
-LL | |                 break 'foo;
-LL | |             }
-   | |_____________^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:502:17: 502:28 (#0)], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:499:13
    |
@@ -892,13 +392,6 @@ LL | |                 break 'foo;
 LL | |             }
    | |_____________^
 
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:515:21: 515:27 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [tests/ui/never_loop.rs:527:21: 527:27 (#0)], never_spans: [], non_obvious_spans: [] }
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Diverging { break_spans: [], never_spans: [], non_obvious_spans: [] }
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:522:5
    |
@@ -911,34 +404,6 @@ LL | |         return;
 LL | |     }
    | |_____^
 
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
-DEBUG result before is_never: Normal
 error: this loop never actually loops
   --> tests/ui/never_loop.rs:549:5
    |
@@ -947,11 +412,132 @@ LL | |         x().unwrap();
 LL | |     }
    | |_____^
    |
-note: This expression never returns
+note: this expression never returns
   --> tests/ui/never_loop.rs:550:9
    |
 LL |         x().unwrap();
    |         ^^^^^^^^^^^^
 
-error: aborting due to 31 previous errors
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:558:5
+   |
+LL | /     loop {
+LL | |
+LL | |         loop {
+LL | |             x().unwrap();
+LL | |         }
+LL | |     }
+   | |_____^
+   |
+note: this expression never returns
+  --> tests/ui/never_loop.rs:561:13
+   |
+LL |             x().unwrap();
+   |             ^^^^^^^^^^^^
+
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:560:9
+   |
+LL | /         loop {
+LL | |             x().unwrap();
+LL | |         }
+   | |_________^
+   |
+note: this expression never returns
+  --> tests/ui/never_loop.rs:561:13
+   |
+LL |             x().unwrap();
+   |             ^^^^^^^^^^^^
+
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:570:5
+   |
+LL | /     loop {
+LL | |         {
+LL | |             x().unwrap();
+LL | |         }
+LL | |     }
+   | |_____^
+   |
+note: this expression never returns
+  --> tests/ui/never_loop.rs:572:13
+   |
+LL |             x().unwrap();
+   |             ^^^^^^^^^^^^
+
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:581:5
+   |
+LL | /     loop {
+LL | |         {
+LL | |             {
+LL | |                 x().unwrap();
+...  |
+LL | |     }
+   | |_____^
+   |
+note: this expression never returns
+  --> tests/ui/never_loop.rs:584:17
+   |
+LL |                 x().unwrap();
+   |                 ^^^^^^^^^^^^
+
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:595:5
+   |
+LL | /     loop {
+LL | |         y += 1;
+LL | |         match y {
+LL | |             5 => return,
+...  |
+LL | |     }
+   | |_____^
+   |
+note: this expression never returns
+  --> tests/ui/never_loop.rs:600:17
+   |
+LL |                 x().unwrap();
+   |                 ^^^^^^^^^^^^
+
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:609:5
+   |
+LL | /     loop {
+...  |
+LL | |         break;
+LL | |     }
+   | |_____^
+
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:626:5
+   |
+LL | /     loop {
+LL | |         if true {
+LL | |             x().unwrap();
+LL | |         } else {
+...  |
+LL | |     }
+   | |_____^
+   |
+note: this expression never returns
+  --> tests/ui/never_loop.rs:628:13
+   |
+LL |             x().unwrap();
+   |             ^^^^^^^^^^^^
+
+error: this loop never actually loops
+  --> tests/ui/never_loop.rs:645:5
+   |
+LL | /     loop {
+LL | |         test_macro!(x().unwrap());
+LL | |     }
+   | |_____^
+   |
+note: this expression never returns
+  --> tests/ui/never_loop.rs:646:21
+   |
+LL |         test_macro!(x().unwrap());
+   |                     ^^^^^^^^^^^^
+
+error: aborting due to 39 previous errors
 

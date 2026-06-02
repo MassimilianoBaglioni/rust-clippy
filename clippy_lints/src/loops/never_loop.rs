@@ -72,7 +72,7 @@ pub(super) fn check<'tcx>(
                 }
 
                 for span in non_obvious_spans {
-                    diag.span_note(*span, "This expression never returns");
+                    diag.span_note(*span, "this expression never returns");
                 }
             });
         },
@@ -288,7 +288,7 @@ fn is_label_for_block(cx: &LateContext<'_>, dest: &Destination) -> bool {
 #[expect(clippy::too_many_lines)]
 fn never_loop_expr<'tcx>(
     cx: &LateContext<'tcx>,
-    expr: &Expr<'tcx>,
+    expr: &'tcx Expr<'tcx>,
     local_labels: &mut Vec<(HirId, bool)>,
     main_loop_id: HirId,
 ) -> NeverLoopResult {
@@ -450,16 +450,14 @@ fn never_loop_expr<'tcx>(
         | ExprKind::Err(_) => NeverLoopResult::Normal,
     };
 
-    eprintln!("DEBUG result before is_never: {:?}", result.clone());
-
     let result = combine_seq(result, || {
         if cx.typeck_results().expr_ty(expr).is_never() {
-            let is_obvious = expr.span.from_expansion();
+            let non_obvious_spans = find_non_obvious_spans(cx, expr);
 
             NeverLoopResult::Diverging {
                 break_spans: vec![],
                 never_spans: all_spans_after_expr(cx, expr),
-                non_obvious_spans: if is_obvious { vec![] } else { vec![expr.span] },
+                non_obvious_spans,
             }
         } else {
             NeverLoopResult::Normal
@@ -500,4 +498,31 @@ fn mark_block_as_reachable(expr: &Expr<'_>, local_labels: &mut [(HirId, bool)]) 
     {
         *reachable = true;
     }
+}
+
+fn find_non_obvious_spans<'tcx>(cx: &LateContext<'tcx>, e: &'tcx Expr<'tcx>) -> Vec<Span> {
+    let mut spans = vec![];
+
+    for_each_expr_without_closures(e, |expr: &'tcx Expr<'tcx>| -> ControlFlow<(), Descend> {
+        if cx.typeck_results().expr_ty(expr).is_never() && !expr.span.from_expansion() {
+            match expr.kind {
+                ExprKind::Break(..)
+                | ExprKind::Continue(..)
+                | ExprKind::Ret(..)
+                | ExprKind::Become(..)
+                | ExprKind::Loop(..)
+                | ExprKind::Block(..)
+                | ExprKind::Match(..)
+                | ExprKind::If(..) => {
+                    return ControlFlow::Continue(Descend::Yes);
+                },
+                _ => {
+                    spans.push(expr.span);
+                    return ControlFlow::Continue(Descend::No);
+                },
+            }
+        }
+        ControlFlow::Continue(Descend::Yes)
+    });
+    spans
 }
