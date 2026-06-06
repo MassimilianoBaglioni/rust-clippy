@@ -28,7 +28,7 @@ pub(super) fn check<'tcx>(
         NeverLoopResult::Diverging {
             ref break_spans,
             ref never_spans,
-            ref non_obvious_spans,
+            ref non_obvious_exprs,
         } => {
             span_lint_and_then(cx, NEVER_LOOP, span, "this loop never actually loops", |diag| {
                 if let Some(ForLoop {
@@ -71,8 +71,14 @@ pub(super) fn check<'tcx>(
                     }
                 }
 
+                let non_obvious_spans: Vec<Span> = non_obvious_exprs
+                    .iter()
+                    .map(|hir_id| cx.tcx.hir_expect_expr(*hir_id))
+                    .flat_map(|expr| find_non_obvious_spans(cx, expr))
+                    .collect();
+
                 for span in non_obvious_spans {
-                    diag.span_note(*span, "this expression never returns");
+                    diag.span_note(span, "this expression never returns");
                 }
             });
         },
@@ -140,7 +146,7 @@ enum NeverLoopResult {
     Diverging {
         break_spans: Vec<Span>,
         never_spans: Vec<Span>,
-        non_obvious_spans: Vec<Span>,
+        non_obvious_exprs: Vec<HirId>,
     },
     /// We have not encountered any main loop continue,
     /// and subsequent control flow is (possibly) reachable
@@ -187,21 +193,21 @@ fn combine_branches(b1: NeverLoopResult, b2: NeverLoopResult) -> NeverLoopResult
             NeverLoopResult::Diverging {
                 break_spans: mut break_spans1,
                 never_spans: mut never_spans1,
-                non_obvious_spans: mut non_obvious_spans1,
+                non_obvious_exprs: mut non_obvious_exprs1,
             },
             NeverLoopResult::Diverging {
                 break_spans: mut break_spans2,
                 never_spans: mut never_spans2,
-                non_obvious_spans: mut non_obvious_spans2,
+                non_obvious_exprs: mut non_obvious_exprs2,
             },
         ) => {
             break_spans1.append(&mut break_spans2);
             never_spans1.append(&mut never_spans2);
-            non_obvious_spans1.append(&mut non_obvious_spans2);
+            non_obvious_exprs1.append(&mut non_obvious_exprs2);
             NeverLoopResult::Diverging {
                 break_spans: break_spans1,
                 never_spans: never_spans1,
-                non_obvious_spans: non_obvious_spans1,
+                non_obvious_exprs: non_obvious_exprs1,
             }
         },
     }
@@ -345,7 +351,7 @@ fn never_loop_expr<'tcx>(
                     NeverLoopResult::Diverging {
                         break_spans: vec![],
                         never_spans: vec![],
-                        non_obvious_spans: vec![],
+                        non_obvious_exprs: vec![],
                     },
                     |a, b| combine_branches(a, never_loop_expr(cx, b.body, local_labels, main_loop_id)),
                 )
@@ -372,7 +378,7 @@ fn never_loop_expr<'tcx>(
                 NeverLoopResult::Diverging {
                     break_spans: all_spans_after_expr(cx, expr),
                     never_spans: vec![],
-                    non_obvious_spans: vec![],
+                    non_obvious_exprs: vec![],
                 }
             }
         },
@@ -386,7 +392,7 @@ fn never_loop_expr<'tcx>(
                 NeverLoopResult::Diverging {
                     break_spans: vec![],
                     never_spans: vec![],
-                    non_obvious_spans: vec![],
+                    non_obvious_exprs: vec![],
                 }
             })
         },
@@ -404,7 +410,7 @@ fn never_loop_expr<'tcx>(
                         all_spans_after_expr(cx, expr)
                     },
                     never_spans: vec![],
-                    non_obvious_spans: vec![],
+                    non_obvious_exprs: vec![],
                 }
             })
         },
@@ -412,7 +418,7 @@ fn never_loop_expr<'tcx>(
             NeverLoopResult::Diverging {
                 break_spans: vec![],
                 never_spans: vec![],
-                non_obvious_spans: vec![],
+                non_obvious_exprs: vec![],
             }
         }),
         ExprKind::InlineAsm(asm) => combine_seq_many(asm.operands.iter().map(|(o, _)| match o {
@@ -452,12 +458,12 @@ fn never_loop_expr<'tcx>(
 
     let result = combine_seq(result, || {
         if cx.typeck_results().expr_ty(expr).is_never() {
-            let non_obvious_spans = find_non_obvious_spans(cx, expr);
+            let non_obvious_exprs = vec![expr.hir_id];
 
             NeverLoopResult::Diverging {
                 break_spans: vec![],
                 never_spans: all_spans_after_expr(cx, expr),
-                non_obvious_spans,
+                non_obvious_exprs,
             }
         } else {
             NeverLoopResult::Normal
