@@ -71,11 +71,10 @@ pub(super) fn check<'tcx>(
                     }
                 }
 
-                let non_obvious_spans: Vec<Span> = non_obvious_exprs
+                let non_obvious_spans = non_obvious_exprs
                     .iter()
                     .map(|hir_id| cx.tcx.hir_expect_expr(*hir_id))
-                    .flat_map(|expr| find_non_obvious_spans(cx, expr))
-                    .collect();
+                    .flat_map(|expr| find_non_obvious_spans(cx, expr));
 
                 for span in non_obvious_spans {
                     diag.span_note(span, "this expression never returns");
@@ -458,12 +457,10 @@ fn never_loop_expr<'tcx>(
 
     let result = combine_seq(result, || {
         if cx.typeck_results().expr_ty(expr).is_never() {
-            let non_obvious_exprs = vec![expr.hir_id];
-
             NeverLoopResult::Diverging {
                 break_spans: vec![],
                 never_spans: all_spans_after_expr(cx, expr),
-                non_obvious_exprs,
+                non_obvious_exprs: vec![expr.hir_id],
             }
         } else {
             NeverLoopResult::Normal
@@ -512,6 +509,9 @@ fn find_non_obvious_spans<'tcx>(cx: &LateContext<'tcx>, e: &'tcx Expr<'tcx>) -> 
     for_each_expr_without_closures(e, |expr: &'tcx Expr<'tcx>| -> ControlFlow<(), Descend> {
         if cx.typeck_results().expr_ty(expr).is_never() && !expr.span.from_expansion() {
             match expr.kind {
+                // The first arm handles both directly divergent expressions and expressions
+                // that contain divergence indirectly. The latter are inspected to identify
+                // possible inner non-trivial divergent expressions.
                 ExprKind::Break(..)
                 | ExprKind::Continue(..)
                 | ExprKind::Ret(..)
@@ -522,7 +522,33 @@ fn find_non_obvious_spans<'tcx>(cx: &LateContext<'tcx>, e: &'tcx Expr<'tcx>) -> 
                 | ExprKind::If(..) => {
                     return ControlFlow::Continue(Descend::Yes);
                 },
-                _ => {
+                ExprKind::ConstBlock(..)
+                | ExprKind::Array(..)
+                | ExprKind::Call(..)
+                | ExprKind::MethodCall(..)
+                | ExprKind::Use(..)
+                | ExprKind::Tup(..)
+                | ExprKind::Binary(..)
+                | ExprKind::Unary(..)
+                | ExprKind::Lit(..)
+                | ExprKind::Cast(..)
+                | ExprKind::Type(..)
+                | ExprKind::DropTemps(..)
+                | ExprKind::Let(..)
+                | ExprKind::Closure(..)
+                | ExprKind::Assign(..)
+                | ExprKind::AssignOp(..)
+                | ExprKind::Field(..)
+                | ExprKind::Index(..)
+                | ExprKind::Path(..)
+                | ExprKind::AddrOf(..)
+                | ExprKind::InlineAsm(..)
+                | ExprKind::OffsetOf(..)
+                | ExprKind::Struct(..)
+                | ExprKind::Repeat(..)
+                | ExprKind::Yield(..)
+                | ExprKind::UnsafeBinderCast(..)
+                | ExprKind::Err(..) => {
                     spans.push(expr.span);
                     return ControlFlow::Continue(Descend::No);
                 },

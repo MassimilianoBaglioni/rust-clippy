@@ -606,10 +606,8 @@ fn issue16056_match() {
 fn issue16056_if_no_trigger() {
     let x = || Some(panic!());
     let mut y = 0;
+    //~v never_loop
     loop {
-        //~^ never_loop
-
-        // clippy::never_loop
         y += 1;
         if y == 1 {
             // No extra note for this
